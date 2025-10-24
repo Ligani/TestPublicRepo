@@ -38,6 +38,7 @@ public class WarehouseService : IWarehouseService
         var warehouses = await _dbContext.Warehouses
             .Where(wh => wh.Products.Any(p => p.ReceivedDate >= start && p.ReceivedDate < end))
             .ToListAsync();
+
         return warehouses;
     }
 }
